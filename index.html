@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unblock Checker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-cube"></i>
+            <span>UNBLOCK</span>
+        </div>
+        <div class="social-icons">
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://t.me" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="headline">Gas Spent Checker ⛽</h1>
+        
+        <div class="input-container">
+            <input type="text" id="walletAddress" placeholder="Paste your wallet address (0x...)">
+        </div>
+
+        <div class="results-table">
+            <div class="table-row header">
+                <div>Chain</div>
+                <div>TXs</div>
+                <div>Fees (ETH)</div>
+                <div>Value (USD)</div>
+            </div>
+            <div id="results"></div>
+            <div id="total-row" class="table-row total"></div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
