@@ -1,0 +1,218 @@
+:root {
+    --primary-color: #8c52ff;
+    --background: #0f0f1f;
+    --text-color: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.05);
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--header-bg);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo i {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    animation: logoSpin 5s linear infinite;
+}
+
+@keyframes logoSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+main {
+    margin-top: 100px;
+    padding: 2rem 5%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headline {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    animation: fadeInUp 0.5s ease;
+    background: linear-gradient(45deg, #8c52ff, #6a3dc7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.input-container {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    position: relative;
+}
+
+#walletAddress {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#walletAddress:focus {
+    outline: none;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.results-table {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.table-row.header {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    position: sticky;
+    top: 120px;
+}
+
+.table-row.loading {
+    position: relative;
+    opacity: 0.8;
+}
+
+.loading-bar {
+    height: 2px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: loading 1.5s infinite;
+}
+
+.table-row.total {
+    background: var(--primary-color);
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+@keyframes loading {
+    0% { width: 0; left: 0 }
+    50% { width: 100%; left: 0 }
+    100% { width: 0; left: 100% }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .headline {
+        font-size: 2rem;
+    }
+
+    .table-row {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .results-table {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    #walletAddress {
+        padding: 1rem;
+    }
+    
+    .logo i {
+        font-size: 1.4rem;
+    }
+}
